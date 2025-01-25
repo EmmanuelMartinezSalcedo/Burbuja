@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://t6ngrnji3p5g"]
+
+[ext_resource type="Script" path="res://Scripts/deep_dive.gd" id="1_ehy02"]
+[ext_resource type="PackedScene" uid="uid://dgvsn1bijyiw2" path="res://Scenes/player.tscn" id="1_ms3e4"]
+[ext_resource type="PackedScene" uid="uid://wvtf44dv2iex" path="res://Scenes/bubble.tscn" id="2_awers"]
+[ext_resource type="PackedScene" uid="uid://ycao18tbtnwb" path="res://Scenes/fish_spawner.tscn" id="3_3hb12"]
+
+[node name="Deep Dive" type="Node2D"]
+script = ExtResource("1_ehy02")
+
+[node name="Player" parent="." instance=ExtResource("1_ms3e4")]
+position = Vector2(520, 492)
+
+[node name="Bubble" parent="." instance=ExtResource("2_awers")]
+
+[node name="FishSpawner" parent="." instance=ExtResource("3_3hb12")]
