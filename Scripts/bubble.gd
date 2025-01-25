@@ -6,6 +6,8 @@ var invincible = false  # Estado de invencibilidad
 var invincibility_duration = 1.0  # Duración de la invencibilidad en segundos
 var invincibility_timer = 0.0  # Temporizador para la invencibilidad
 
+var draining = false
+
 func _ready() -> void:
 	volume = 7.0  # Volumen del jugador
 	density = 1  # Densidad del jugador (ajustable según el objeto)
@@ -50,9 +52,21 @@ func _process(delta: float) -> void:
 		invincibility_timer -= delta
 		if invincibility_timer <= 0:
 			invincible = false  # Desactivar la invencibilidad
+	
+	if draining and player:
+		player.health += 1
+		health -= 1
+		if player.health >= 100:
+			draining = false
+	
+	if health <= 0:
+		# Cargar la escena de Game Over
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	print("Bubble health: " + str(health))
 
 func _on_grabbable_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
+		player = area.get_parent()
 		is_following_player = true
 		player = area.get_parent()  # Get the actual player node if needed
 
@@ -62,13 +76,18 @@ func _on_grabbable_area_area_exited(area: Area2D) -> void:
 		player = null  # Reset the player reference
 
 func _on_hitbox_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		player = area.get_parent()
+		if area.get_parent().health < 100:
+			draining = true
+			
+			pass
+		is_following_player = true
+		player = area.get_parent()  # Get the actual player node if needed
+	
 	if area.is_in_group("enemy") and not invincible:
 		print("Took damage: " + str(area.get_parent().damage))
 		health -= area.get_parent().damage
 		# Activamos invencibilidad
 		invincible = true
 		invincibility_timer = invincibility_duration  # Reiniciamos el temporizador
-		
-		if health <= 0:
-			# Cargar la escena de Game Over
-			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
