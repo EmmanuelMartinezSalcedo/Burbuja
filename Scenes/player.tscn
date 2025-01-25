@@ -1,23 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgvsn1bijyiw2"]
+[gd_scene load_steps=5 format=3 uid="uid://dt2va7o282vnf"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ko5sp"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_55p7j"]
+[ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="2_a6u7l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v0t7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
+size = Vector2(127, 127)
 
-[node name="Player" type="Node2D"]
-script = ExtResource("1_ko5sp")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yokfs"]
+size = Vector2(127, 127)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(0, 1, 0, 1)
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_55p7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_60h33")
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_6v0t7")
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_yokfs")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a6u7l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

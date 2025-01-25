@@ -1,24 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://t6ngrnji3p5g"]
+[gd_scene load_steps=5 format=3 uid="uid://dti4r1e43apft"]
 
-[ext_resource type="Script" path="res://Scripts/deep_dive.gd" id="1_ehy02"]
-[ext_resource type="PackedScene" uid="uid://dgvsn1bijyiw2" path="res://Scenes/player.tscn" id="1_ms3e4"]
-[ext_resource type="PackedScene" uid="uid://wvtf44dv2iex" path="res://Scenes/bubble.tscn" id="2_awers"]
-[ext_resource type="PackedScene" uid="uid://ycao18tbtnwb" path="res://Scenes/fish_spawner.tscn" id="3_3hb12"]
-[ext_resource type="PackedScene" uid="uid://cjl2fuvs2aok4" path="res://Scenes/fish.tscn" id="5_g6ur0"]
+[ext_resource type="PackedScene" uid="uid://dt2va7o282vnf" path="res://Scenes/player.tscn" id="1_6dcni"]
+[ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="2_bxrkf"]
+
+[sub_resource type="Gradient" id="Gradient_wydvk"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nwfyh"]
+gradient = SubResource("Gradient_wydvk")
 
 [node name="Deep Dive" type="Node2D"]
-script = ExtResource("1_ehy02")
 
-[node name="Player" parent="." instance=ExtResource("1_ms3e4")]
-position = Vector2(520, 492)
-scale = Vector2(1.905, 1.905)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1148.0
+offset_top = 2.0
+offset_right = 2386.0
+offset_bottom = 1149.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_nwfyh")
+flip_h = true
 
-[node name="Bubble" parent="." instance=ExtResource("2_awers")]
-position = Vector2(581, 322)
-scale = Vector2(0.63, 0.63)
+[node name="Bubble" parent="." instance=ExtResource("2_bxrkf")]
+position = Vector2(487, 382)
 
-[node name="FishSpawner" parent="." instance=ExtResource("3_3hb12")]
-
-[node name="Fish" parent="." instance=ExtResource("5_g6ur0")]
-position = Vector2(190, 494)
-scale = Vector2(1.94, 1.94)
+[node name="Player" parent="." instance=ExtResource("1_6dcni")]
+position = Vector2(643, 394)

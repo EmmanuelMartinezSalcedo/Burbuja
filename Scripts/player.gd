@@ -1,32 +1,16 @@
-extends Node2D
+extends Entity
 
-var volume: float = 70.0  # Volumen del jugador
-var density: float = 1.7  # Densidad del jugador (ajustable según el objeto)
-var speed: float = 10.0  # Velocidad base de movimiento del jugador
-var velocity = Vector2()  # Dirección de movimiento
-var gravity = 10  # Gravedad
-var water_density = 2  # Densidad del agua
-var max_speed: float = 250.0  # Límite máximo de velocidad
+var bubble: CharacterBody2D = null  # La burbuja con la que interactuaremos
 
-var momentum_x = 0.97
-var momentum_y = 0.95
+func _ready() -> void:	
+	volume = 70.0  # Volumen del jugador
+	density = 1.7  # Densidad del jugador (ajustable según el objeto)
+	speed = 10.0  # Velocidad base de movimiento del jugador
+	max_speed = 250.0  # Límite máximo de velocidad
+	momentum_x = 0.97
+	momentum_y = 0.95
 
-var can_grab_bubble = false
-var bubble: Node2D = null  # La burbuja con la que interactuaremos
-var attraction_strength: float = 100.0  # Fuerza de atracción de la burbuja
-
-# Llamar a la fuerza hidrostática
-func hydrostatic_force(value: float) -> float:
-	return value * gravity * water_density
-
-# Calcular el peso
-func weight() -> float:
-	return volume * density * gravity
-
-func _ready() -> void:
-	pass 
-
-func _process(delta: float) -> void:
+func user_input() -> void:
 	# Movimiento del jugador
 	if Input.is_action_pressed("ui_up"):  # W
 		velocity.y -= speed
@@ -42,6 +26,10 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x *= momentum_x
 
+func _process(delta: float) -> void:
+	
+	user_input()
+	
 	var buoyant_force = hydrostatic_force(volume)  # Fuerza hacia arriba
 	var body_weight = weight()  # Fuerza hacia abajo
 
@@ -52,13 +40,13 @@ func _process(delta: float) -> void:
 	# Límite de velocidad
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
-
 	position += velocity * delta
+	
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
-		bubble = area.get_parent()  # Guarda la referencia a la burbuja
+		var bubble = area.get_parent()  # Guarda la referencia a la burbuja
 		bubble.can_follow_player = true
 
 
