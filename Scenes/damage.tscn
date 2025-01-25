@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c4440q1wrbmvy"]
+
+[node name="Damage" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+gravity = Vector2(0, -10)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0

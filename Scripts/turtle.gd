@@ -12,12 +12,12 @@ func _ready() -> void:
 	volume = 70.0  # Volumen del jugador
 	density = 1.9  # Densidad del jugador (ajustable según el objeto)
 	speed = 0.5  # Velocidad base de movimiento
-	max_speed = 200.0  # Límite máximo de velocidad
+	max_speed = 50.0  # Límite máximo de velocidad
 	momentum_x = 0.97
 	momentum_y = 0.95
 	
-	health = 100
-	damage = 100
+	health = 300
+	damage = 30
 
 	# Asegúrate de que la burbuja esté correctamente asignada antes de mover el pez.
 	bubble = get_parent().get_node("Bubble")  # Ajusta la ruta al nodo de la burbuja
@@ -50,8 +50,7 @@ func _process(delta: float) -> void:
 	# Actualizar la posición del pez
 	position += velocity * delta
 
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		# Obtiene el nodo del "bullet" y reduce la salud
 		var bullet = area.get_parent()
