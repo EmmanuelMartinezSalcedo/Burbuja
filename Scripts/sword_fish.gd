@@ -45,3 +45,16 @@ func _process(delta: float) -> void:
 	
 	# Actualizar la posición del pez
 	position += velocity * delta
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		# Elimina el nodo actual (el que tiene este script) del árbol de nodos
+		get_parent().remove_child(self)
+		
+		# Elimina el nodo "bullet" completamente de la memoria
+		area.get_parent().queue_free()
+		
+		
+		# Finalmente, elimina el nodo actual de memoria
+		queue_free()

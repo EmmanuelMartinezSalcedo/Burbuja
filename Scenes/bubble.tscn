@@ -8,7 +8,7 @@
 radius = 139.044
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbt45"]
-radius = 110.018
+radius = 95.0053
 
 [node name="Bubble" type="CharacterBody2D"]
 script = ExtResource("1_62y88")

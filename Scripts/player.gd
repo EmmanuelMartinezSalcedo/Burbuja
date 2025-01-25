@@ -10,13 +10,6 @@ func _ready() -> void:
 	momentum_x = 0.97
 	momentum_y = 0.95
 
-# Detecta los clics del ratón y obtiene las coordenadas del clic
-func _input(event) -> void:
-	# Verifica si el evento es un clic con el botón izquierdo del ratón
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		# Imprime las coordenadas globales del clic
-		print("Coordenadas del clic: ", get_global_mouse_position())
-
 func user_input() -> void:
 	# Movimiento del jugador
 	if Input.is_action_pressed("ui_up"):  # W
@@ -53,7 +46,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
-		var bubble = area.get_parent()  # Guarda la referencia a la burbuja
+		bubble = area.get_parent()  # Guarda la referencia a la burbuja
 		bubble.can_follow_player = true
 
 
