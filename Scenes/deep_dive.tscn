@@ -13,5 +13,9 @@ position = Vector2(520, 492)
 scale = Vector2(1.905, 1.905)
 
 [node name="Bubble" parent="." instance=ExtResource("2_awers")]
+position = Vector2(581, 322)
+scale = Vector2(5.135, 5.135)
 
 [node name="FishSpawner" parent="." instance=ExtResource("3_3hb12")]
+
+[node name="Fish" type="Node2D" parent="."]

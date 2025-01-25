@@ -1,15 +1,19 @@
 extends Node2D
 
 var volume: float = 70.0  # Volumen del jugador
-var density: float = 1.5  # Densidad del jugador (ajustable según el objeto)
-var speed: float = 20.0  # Velocidad base de movimiento del jugador
+var density: float = 1.7  # Densidad del jugador (ajustable según el objeto)
+var speed: float = 10.0  # Velocidad base de movimiento del jugador
 var velocity = Vector2()  # Dirección de movimiento
 var gravity = 10  # Gravedad
 var water_density = 2  # Densidad del agua
-var max_speed: float = 300.0  # Límite máximo de velocidad
+var max_speed: float = 250.0  # Límite máximo de velocidad
 
 var momentum_x = 0.97
 var momentum_y = 0.95
+
+var can_grab_bubble = false
+var bubble: Node2D = null  # La burbuja con la que interactuaremos
+var attraction_strength: float = 100.0  # Fuerza de atracción de la burbuja
 
 # Llamar a la fuerza hidrostática
 func hydrostatic_force(value: float) -> float:
@@ -23,7 +27,7 @@ func _ready() -> void:
 	pass 
 
 func _process(delta: float) -> void:
-	# Aqui cambiar los UI por lo que pusiste Emmanuel, no vi bien xd
+	# Movimiento del jugador
 	if Input.is_action_pressed("ui_up"):  # W
 		velocity.y -= speed
 	elif Input.is_action_pressed("ui_down"):  # S
@@ -51,6 +55,14 @@ func _process(delta: float) -> void:
 
 	position += velocity * delta
 
-	print("Fuerza hidrostática: ", buoyant_force)
-	print("Peso del cuerpo: ", body_weight)
-	print("Fuerza neta: ", net_force)
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bubble"):
+		bubble = area.get_parent()  # Guarda la referencia a la burbuja
+		bubble.can_follow_player = true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("bubble"):
+		bubble.can_follow_player = false
+		bubble = null  # Borramos la referencia a la burbuja cuando salimos del área

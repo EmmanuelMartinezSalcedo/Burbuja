@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://wvtf44dv2iex"]
+[gd_scene load_steps=3 format=3 uid="uid://wvtf44dv2iex"]
+
+[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_0jtqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hhmh"]
+radius = 12.0
 
 [node name="Bubble" type="Node2D"]
+script = ExtResource("1_0jtqt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 1)
+
+[node name="Area2D" type="Area2D" parent="." groups=["bubble"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0hhmh")
