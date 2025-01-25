@@ -33,10 +33,10 @@ func attract_to_player(delta: float) -> void:
 func _ready() -> void:
 	pass
 
-var player = get_parent().get_child(0)  # Suponiendo que el jugador es el primer hijo del contenedor
+
 
 func _process(delta: float) -> void:
-
+	var player = get_parent().get_child(0)  # Suponiendo que el jugador es el primer hijo del contenedor
 	player_position = player.position  # Actualizar la posición del jugador cada frame
 	# Podriamos aprovechar esto para hacer una flecha que los una
 
