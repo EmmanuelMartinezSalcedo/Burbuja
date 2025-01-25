@@ -2,11 +2,11 @@ extends Node2D
 
 # Path to the fish scene
 var fish_scene_path: String = "res://Scenes/sword_fish.tscn"
-var spawn_interval: float = 2.0  # Intervalo de tiempo entre los spawns de los peces
+var spawn_interval: float = 10.0  # Intervalo de tiempo entre los spawns de los peces
 var time_since_last_spawn: float = 0.0  # Tiempo desde el último spawn
 var bubble_position: Vector2  # La posición de la burbuja
 var spawn_radius: float = 400.0  # Rango para el desplazamiento de los peces debajo de la burbuja
-var min_distance_below: float = 200.0  # Distancia mínima desde la burbuja donde el pez aparece
+var min_distance_below: float = 500.0  # Distancia mínima desde la burbuja donde el pez aparece
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +29,7 @@ func spawn_fish() -> void:
 
 	# Crear una instancia de la escena del pez
 	var fish_instance = fish_scene.instantiate()
-
+	fish_instance.bubble_position = bubble_position
 	# Calcular una posición debajo de la burbuja
 	var x_offset = randf_range(-spawn_radius, spawn_radius)  # Desplazamiento aleatorio en el eje X
 	var y_offset = randf_range(min_distance_below, spawn_radius)  # Desplazamiento en el eje Y, siempre debajo

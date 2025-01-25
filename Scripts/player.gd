@@ -6,9 +6,16 @@ func _ready() -> void:
 	volume = 70.0  # Volumen del jugador
 	density = 1.7  # Densidad del jugador (ajustable según el objeto)
 	speed = 10.0  # Velocidad base de movimiento del jugador
-	max_speed = 250.0  # Límite máximo de velocidad
+	max_speed = 90.0  # Límite máximo de velocidad
 	momentum_x = 0.97
 	momentum_y = 0.95
+
+# Detecta los clics del ratón y obtiene las coordenadas del clic
+func _input(event) -> void:
+	# Verifica si el evento es un clic con el botón izquierdo del ratón
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# Imprime las coordenadas globales del clic
+		print("Coordenadas del clic: ", get_global_mouse_position())
 
 func user_input() -> void:
 	# Movimiento del jugador

@@ -1,32 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1y62h0dnqlaq"]
+[gd_scene load_steps=6 format=3 uid="uid://b1y62h0dnqlaq"]
 
 [ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_62y88"]
 [ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="1_sy6hg"]
 [ext_resource type="Script" path="res://Scripts/fish_spawner.gd" id="3_2qiha"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17cla"]
-radius = 150.5
+radius = 139.044
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbt45"]
+radius = 110.018
 
 [node name="Bubble" type="CharacterBody2D"]
 script = ExtResource("1_62y88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.99999, 9.53674e-07)
 scale = Vector2(0.099359, 0.1)
 texture = ExtResource("1_sy6hg")
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="GrabbableArea" type="Area2D" parent="." groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbableArea"]
 position = Vector2(1.5, 0.25)
-shape = SubResource("CircleShape2D_17cla")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0.5)
 shape = SubResource("CircleShape2D_17cla")
 
 [node name="FishSpawner" type="Node2D" parent="."]
 script = ExtResource("3_2qiha")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Hitbox2" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox2"]
+shape = SubResource("CircleShape2D_bbt45")
+
+[connection signal="area_entered" from="GrabbableArea" to="." method="_on_grabbable_area_area_entered"]
+[connection signal="area_exited" from="GrabbableArea" to="." method="_on_grabbable_area_area_exited"]
+[connection signal="area_entered" from="Hitbox2" to="." method="_on_hitbox_2_area_entered"]

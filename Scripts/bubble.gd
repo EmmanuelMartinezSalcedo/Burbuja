@@ -6,8 +6,8 @@ var player: CharacterBody2D = null  # The player entity
 func _ready() -> void:
 	volume = 7.0  # Volumen del jugador
 	density = 1  # Densidad del jugador (ajustable según el objeto)
-	speed = 50.0  # Velocidad base de movimiento del jugador
-	max_speed = 100.0  # Límite máximo de velocidad
+	speed = 20.0  # Velocidad base de movimiento del jugador
+	max_speed = 50.0  # Límite máximo de velocidad
 	momentum_x = 0.97
 	momentum_y = 0.95
 
@@ -41,14 +41,18 @@ func _process(delta: float) -> void:
 	# Update position based on velocity
 	position += velocity * delta
 
-# When entering the player's area, start following
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_grabbable_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		is_following_player = true
 		player = area.get_parent()  # Get the actual player node if needed
 
-# When exiting the player's area, stop following
-func _on_area_2d_area_exited(area: Area2D) -> void:
+
+func _on_grabbable_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		is_following_player = false
 		player = null  # Reset the player reference
+
+
+func _on_hitbox_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		print("You are die")
