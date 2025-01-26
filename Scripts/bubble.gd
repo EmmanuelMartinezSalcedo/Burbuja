@@ -25,7 +25,7 @@ func user_input(delta: float) -> void:
 		velocity += direction_to_player * attraction_strength * delta * 0.1  # Move toward the player
 
 func _process(delta: float) -> void:
-	scale = Vector2(volume * 0.1, volume  * 0.1) * health / 100
+	scale = (Vector2(volume * 0.1 + 0.4, volume  * 0.1 + 0.4) * health / 100)
 	# Apply buoyant force (float up/down based on buoyancy)
 	var buoyant_force = hydrostatic_force(volume)  # Fuerza hacia arriba
 	var body_weight = weight()  # Fuerza hacia abajo
@@ -84,6 +84,14 @@ func _on_hitbox_2_area_entered(area: Area2D) -> void:
 			pass
 		is_following_player = true
 		player = area.get_parent()  # Get the actual player node if needed
+	
+	if area.is_in_group("bullet"):
+		var bullet = area.get_parent()
+		health += 1
+		
+		print(bullet.damage)
+		
+		bullet.queue_free()
 	
 	if area.is_in_group("enemy") and not invincible:
 		print("Took damage: " + str(area.get_parent().damage))
