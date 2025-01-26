@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpef3ot7fo0ai"]
+[gd_scene load_steps=3 format=3 uid="uid://dfslmmxr0ysjj"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_0ch1a"]
-[ext_resource type="Texture2D" uid="uid://bdq2ujb1hlo47" path="res://Sprites/background.png" id="1_k56y8"]
+[ext_resource type="Texture2D" uid="uid://bdq2ujb1hlo47" path="res://Sprites/background.png" id="1_ubbrw"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_xe8mw"]
 
-[node name="GameOver" type="Control"]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0ch1a")
+script = ExtResource("1_xe8mw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 359.375)
 scale = Vector2(0.16, 0.160278)
-texture = ExtResource("1_k56y8")
+texture = ExtResource("1_ubbrw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 200)
@@ -34,15 +34,6 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "BACK TO MENU"
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 255.0
-offset_top = 55.0
-offset_right = 1064.0
-offset_bottom = 248.0
-theme_override_font_sizes/font_size = 141
-text = "GAME OVER"
+text = "PLAY"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 const BULLET = preload("res://Scenes/bullet.tscn")
-var cooldown_time = 0.5  # Tiempo de cooldown entre disparos en segundos
+var cooldown_time = 0.1  # Tiempo de cooldown entre disparos en segundos
 var cooldown_timer = 0.0  # Temporizador para el cooldown
 
 # Lerp factor para hacer que el objeto siga lentamente al cursor
