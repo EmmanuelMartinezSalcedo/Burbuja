@@ -1,6 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://8mxqk7rtbwtt"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://8mxqk7rtbwtt"]
 
+[ext_resource type="PackedScene" uid="uid://bmhwdkx2juk02" path="res://Scenes/shopOpener.tscn" id="1_2ok34"]
 [ext_resource type="Texture2D" uid="uid://cvcupca8g0qf1" path="res://Sprites/Tileset.png" id="1_eynb8"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_upetv"]
+scenes/1/scene = ExtResource("1_2ok34")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nipvu"]
 texture = ExtResource("1_eynb8")
@@ -305,3 +309,4 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "tiles"
 terrain_set_0/terrain_0/color = Color(0.671101, 0.0863982, 0.436665, 1)
 sources/2 = SubResource("TileSetAtlasSource_nipvu")
+sources/0 = SubResource("TileSetScenesCollectionSource_upetv")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tm6fxfwhrv14"
-path="res://.godot/imported/6-Hexagon.png-528ffc1e436129668673ddb65ec78e4a.ctex"
+uid="uid://c11gj4lomj7ny"
+path="res://.godot/imported/1-Magic.png-615a85526e73a348e6183a76d082717c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Upgrades/6-Hexagon.png"
-dest_files=["res://.godot/imported/6-Hexagon.png-528ffc1e436129668673ddb65ec78e4a.ctex"]
+source_file="res://Sprites/Upgrades/1-Magic.png"
+dest_files=["res://.godot/imported/1-Magic.png-615a85526e73a348e6183a76d082717c.ctex"]
 
 [params]
 

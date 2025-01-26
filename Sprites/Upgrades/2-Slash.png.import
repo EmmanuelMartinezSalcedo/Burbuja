@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp7dl56jgqngm"
-path="res://.godot/imported/8-Borders.png-b44def2365d955a5630786ffe1e0c1b6.ctex"
+uid="uid://cm7copvfgf6au"
+path="res://.godot/imported/2-Slash.png-608f0e23099ad549a6ac738112254a32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Upgrades/8-Borders.png"
-dest_files=["res://.godot/imported/8-Borders.png-b44def2365d955a5630786ffe1e0c1b6.ctex"]
+source_file="res://Sprites/Upgrades/2-Slash.png"
+dest_files=["res://.godot/imported/2-Slash.png-608f0e23099ad549a6ac738112254a32.ctex"]
 
 [params]
 

@@ -44,6 +44,7 @@ player_reference = NodePath("../Player")
 bubble_reference = NodePath("../Bubble")
 
 [node name="Shopping" type="Node2D" parent="."]
+visible = false
 
 [node name="Shop" parent="Shopping" instance=ExtResource("6_g7fp8")]
 anchors_preset = 0

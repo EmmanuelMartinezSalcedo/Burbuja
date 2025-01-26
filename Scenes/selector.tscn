@@ -63,7 +63,7 @@ _data = {
 [node name="Selector" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 texture = ExtResource("1_q4era")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
