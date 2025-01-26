@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpef3ot7fo0ai"]
+[gd_scene load_steps=3 format=3 uid="uid://dpef3ot7fo0ai"]
 
 [ext_resource type="Texture2D" uid="uid://bgwfgblkvy6ij" path="res://Sprites/Background.png" id="1_ps1qo"]
+[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_pvtd6"]
 
 [node name="GameOver" type="Node2D"]
+script = ExtResource("1_pvtd6")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1536, 357)
@@ -39,3 +41,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 text = "Back to menu"
+
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Button2" to="." method="_on_button_2_pressed"]

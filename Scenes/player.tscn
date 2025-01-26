@@ -21,7 +21,7 @@ script = ExtResource("1_55p7j")
 volume = 70.0
 density = 1.7
 speed = 10.0
-max_speed = 1000.0
+max_speed = 500.0
 health = 100.0
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]

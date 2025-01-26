@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c337t0dmjg7b5"]
+[gd_scene load_steps=6 format=3 uid="uid://ccot2xtb1e1jm"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_0ksgw"]
-[ext_resource type="Texture2D" uid="uid://c4ildn62ccg5l" path="res://Sprites/Menu-BG.png" id="1_w0vfb"]
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="1_mh7g8"]
+[ext_resource type="Texture2D" uid="uid://c4ildn62ccg5l" path="res://Sprites/Menu-BG.png" id="2_yj4wi"]
 
 [sub_resource type="Animation" id="Animation_x7kac"]
 length = 0.001
@@ -172,62 +172,14 @@ _data = {
 "Title": SubResource("Animation_ssl73")
 }
 
-[node name="Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_0ksgw")
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_mh7g8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = -359.0
 offset_right = 1293.0
 offset_bottom = 732.0
-texture = ExtResource("1_w0vfb")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 806.0
-offset_top = 24.0
-offset_right = 1256.0
-offset_bottom = 702.0
-size_flags_horizontal = 3
-
-[node name="Play" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
-text = "Play"
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0)
-
-[node name="Credits" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
-text = "Credits"
-
-[node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0)
-
-[node name="Exit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
-text = "Exit"
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 113.0
-offset_top = 175.0
-offset_right = 758.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 40
-text = "Super Extra Xtreme Bubble"
+texture = ExtResource("2_yj4wi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -235,6 +187,55 @@ libraries = {
 }
 autoplay = "Title"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Label" type="Label" parent="."]
+offset_left = 749.0
+offset_top = 68.0
+offset_right = 979.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 40
+text = "Created by:"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 388.0
+offset_right = 158.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 679.0
+offset_top = 535.0
+offset_right = 1102.0
+offset_bottom = 696.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 773.0
+offset_top = 148.0
+offset_right = 1017.0
+offset_bottom = 500.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "runosake"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "indigo29"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Kulies"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -12,7 +12,7 @@ func _ready() -> void:
 	volume = 7.0  # Volumen del jugador
 	density = 1  # Densidad del jugador (ajustable según el objeto)
 	speed = 20.0  # Velocidad base de movimiento del jugador
-	max_speed = 50.0  # Límite máximo de velocidad
+	max_speed = 100.0  # Límite máximo de velocidad
 	momentum_x = 0.97
 	momentum_y = 0.95
 	health = 200.0
@@ -25,7 +25,7 @@ func user_input(delta: float) -> void:
 		velocity += direction_to_player * attraction_strength * delta * 0.1  # Move toward the player
 
 func _process(delta: float) -> void:
-	scale = Vector2(volume * 0.1, volume  * 0.1) * health / 100
+	scale = Vector2(volume * 0.1, volume  * 0.1) * health / 500
 	# Apply buoyant force (float up/down based on buoyancy)
 	var buoyant_force = hydrostatic_force(volume)  # Fuerza hacia arriba
 	var body_weight = weight()  # Fuerza hacia abajo

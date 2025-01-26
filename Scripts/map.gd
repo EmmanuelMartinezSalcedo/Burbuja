@@ -8,6 +8,8 @@ var levels : Array[PackedScene] = [
 	preload("res://Scenes/Levels/ooxoo.tscn")
 ]
 
+var final_scene = preload("res://Scenes/Levels/final.tscn")
+
 var prob : Array[Array] = [
 	[12, 22, 22, 22, 22],
 	[38, 23, 0, 39, 0],
@@ -19,14 +21,14 @@ var prob : Array[Array] = [
 var num_tiles : Array[int] = [24, 52, 51, 31, 31]
 
 const tile_sz = 32
-const to_generate = 7
+const to_generate = 2
 
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	$Music.get_children().pick_random().play()
 	var curr = 0
-	var offset = 20 * tile_sz
+	var offset = 30 * tile_sz
 	for l in range(to_generate):
 		var r = rng.randi_range(0, 100)
 		var acc = 0
@@ -43,6 +45,10 @@ func _ready() -> void:
 		#add_child(node)
 		curr = j
 		offset += tile_sz * num_tiles[j]
+	var node = final_scene.instantiate()
+	node.position.y = offset;
+	$Levels.add_child(node)
+	#add_child(node)	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
