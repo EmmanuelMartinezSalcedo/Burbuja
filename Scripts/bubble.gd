@@ -44,7 +44,8 @@ func _process(delta: float) -> void:
 	velocity.y *= momentum_y
 
 	# Update position based on velocity
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide()
 
 	# Manejo del temporizador de invencibilidad
 	if invincible:

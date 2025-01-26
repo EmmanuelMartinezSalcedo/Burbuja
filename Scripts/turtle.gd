@@ -12,22 +12,13 @@ var time_since_last_direction_update: float = 0.0  # Tiempo transcurrido desde l
 
 func _ready() -> void:
 	animSprite.play("attack")
-	volume = 70.0  # Volumen del jugador
-	density = 1.9  # Densidad del jugador (ajustable según el objeto)
-	speed = 0.5  # Velocidad base de movimiento
-	max_speed = 50.0  # Límite máximo de velocidad
-	momentum_x = 0.97
-	momentum_y = 0.95
-	
-	health = 300
-	damage = 30
 
 	# Asegúrate de que el jugador esté correctamente asignado antes de mover la entidad
-	player = get_parent().get_node("Player")  # Ajusta la ruta al nodo del jugador
+	#player = get_parent().get_node("Player")  # Ajusta la ruta al nodo del jugador
 	
 	# Inicializa la dirección hacia el jugador si el jugador está disponible
-	if player:
-		direction_to_player = (player.position - position).normalized()  # Dirección hacia el jugador
+	#if player:
+		#direction_to_player = (player.position - position).normalized()  # Dirección hacia el jugador
 
 func _process(delta: float) -> void:
 	# Actualizar el tiempo transcurrido desde la última actualización de dirección
@@ -65,7 +56,8 @@ func _process(delta: float) -> void:
 		velocity = velocity.normalized() * max_speed
 	
 	# Actualizar la posición de la entidad
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide()
 	if health <= 0:
 			get_parent().remove_child(self)
 			queue_free()

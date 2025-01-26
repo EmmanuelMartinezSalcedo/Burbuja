@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dti4r1e43apft"]
+[gd_scene load_steps=7 format=3 uid="uid://dti4r1e43apft"]
 
 [ext_resource type="PackedScene" uid="uid://dt2va7o282vnf" path="res://Scenes/player.tscn" id="1_6dcni"]
 [ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="2_bxrkf"]
 [ext_resource type="PackedScene" uid="uid://csrb7ridqgete" path="res://Scenes/turtle.tscn" id="3_s3j42"]
+[ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_nv48n"]
 
 [sub_resource type="Gradient" id="Gradient_wydvk"]
 
@@ -36,3 +37,7 @@ offset_bottom = 409.0
 color = Color(1, 0, 1, 1)
 
 [node name="Turtle" parent="." instance=ExtResource("3_s3j42")]
+
+[node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_nv48n")]
+player_reference = NodePath("../Player")
+bubble_reference = NodePath("../Bubble")

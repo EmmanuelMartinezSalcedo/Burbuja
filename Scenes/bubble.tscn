@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1y62h0dnqlaq"]
+[gd_scene load_steps=6 format=3 uid="uid://b1y62h0dnqlaq"]
 
 [ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_62y88"]
 [ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="1_sy6hg"]
@@ -9,7 +9,13 @@ radius = 151.525
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbt45"]
 radius = 60.0333
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5pr7"]
+radius = 127.0
+
 [node name="Bubble" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
+motion_mode = 1
 script = ExtResource("1_62y88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,6 +32,9 @@ shape = SubResource("CircleShape2D_17cla")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox2"]
 shape = SubResource("CircleShape2D_bbt45")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w5pr7")
 
 [connection signal="area_entered" from="GrabbableArea" to="." method="_on_grabbable_area_area_entered"]
 [connection signal="area_exited" from="GrabbableArea" to="." method="_on_grabbable_area_area_exited"]

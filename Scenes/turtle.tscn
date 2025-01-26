@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://csrb7ridqgete"]
+[gd_scene load_steps=17 format=3 uid="uid://csrb7ridqgete"]
 
 [ext_resource type="Script" path="res://Scripts/turtle.gd" id="1_wbiyj"]
 [ext_resource type="Texture2D" uid="uid://blt64ww12me32" path="res://Sprites/turtle/Attack.png" id="2_k7lpq"]
@@ -90,9 +90,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3opb"]
+size = Vector2(26.6112, 10.8108)
+
 [node name="Turtle" type="CharacterBody2D"]
 scale = Vector2(2.405, 2.405)
 script = ExtResource("1_wbiyj")
+volume = 70.0
+density = 1.9
+speed = 0.5
+max_speed = 50.0
+health = 300.0
+damage = 30.0
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
@@ -104,5 +113,9 @@ shape = SubResource("RectangleShape2D_i01ua")
 sprite_frames = SubResource("SpriteFrames_pep11")
 animation = &"attack"
 frame_progress = 0.836289
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.415801, -0.415801)
+shape = SubResource("RectangleShape2D_a3opb")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

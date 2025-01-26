@@ -9,25 +9,13 @@ var bubble_position: Vector2  # Posición de la burbuja
 
 func _ready() -> void:
 	animSprite.play("attack")
-	volume = 70.0  # Volumen del jugador
-	density = 1.9  # Densidad del jugador (ajustable según el objeto)
-	speed = 0.5  # Velocidad base de movimiento
-	max_speed = 200.0  # Límite máximo de velocidad
-	momentum_x = 0.97
-	momentum_y = 0.95
-	
-	health = 100
-	damage = 100
 
-	# Asegúrate de que la burbuja esté correctamente asignada antes de mover el pez.
-	bubble = get_parent().get_node("Bubble")  # Ajusta la ruta al nodo de la burbuja
-	
 	# Calcular la dirección hacia la burbuja cuando el pez se crea
-	if bubble:
-		direction_to_bubble = (bubble.position - position).normalized()  # Dirección hacia la burbuja
+	#if bubble:
+		#direction_to_bubble = (bubble.position - position).normalized()  # Dirección hacia la burbuja
 
 func _process(delta: float) -> void:
-	
+	print(direction_to_bubble)
 	# Mover el pez en la dirección hacia la burbuja
 	velocity = direction_to_bubble * SPEED  # Movimiento hacia la burbuja
 	
@@ -48,7 +36,8 @@ func _process(delta: float) -> void:
 		velocity = velocity.normalized() * max_speed
 	
 	# Actualizar la posición del pez
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

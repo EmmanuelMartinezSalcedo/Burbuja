@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2m4gwgkjekmy"]
+[gd_scene load_steps=15 format=3 uid="uid://2m4gwgkjekmy"]
 
 [ext_resource type="Script" path="res://Scripts/sword_fish.gd" id="1_0pd63"]
 [ext_resource type="Texture2D" uid="uid://crm6rpgotc3an" path="res://Sprites/swordfish/Attack.png" id="2_dg1xu"]
@@ -76,19 +76,31 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t12p8"]
+size = Vector2(42.7027, 9.18919)
+
 [node name="SwordFish" type="CharacterBody2D"]
 scale = Vector2(1.85, 1.85)
 script = ExtResource("1_0pd63")
+volume = 70.0
+density = 1.9
+speed = 0.5
+max_speed = 200.0
+health = 100.0
+damage = 100.0
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.810812, 1.08108)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_153lk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jn2t8")
 animation = &"take_damage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.810811, 0.810811)
+shape = SubResource("RectangleShape2D_t12p8")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

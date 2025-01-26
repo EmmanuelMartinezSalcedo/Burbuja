@@ -5,16 +5,6 @@ var invincible = false
 var invincibility_timer = 0.0  # Temporizador para la invencibilidad
 var invincibility_duration = 1.0  # Duración de la invencibilidad en segundos
 
-func _ready() -> void:	
-	volume = 70.0  # Volumen del jugador
-	density = 1.7  # Densidad del jugador (ajustable según el objeto)
-	speed = 10.0  # Velocidad base de movimiento del jugador
-	max_speed = 90.0  # Límite máximo de velocidad
-	momentum_x = 0.97
-	momentum_y = 0.95
-	
-	health = 100.0
-
 func user_input() -> void:
 	# Movimiento del jugador
 	if Input.is_action_pressed("ui_up"):  # W
@@ -45,7 +35,8 @@ func _process(delta: float) -> void:
 	# Límite de velocidad
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide()
 	
 	# Manejo del temporizador de invencibilidad
 	if invincible:

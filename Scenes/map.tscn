@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://wpkyuu8nh6y2"]
+
+[ext_resource type="Script" path="res://Scripts/map.gd" id="1_886uj"]
+[ext_resource type="PackedScene" uid="uid://dt2va7o282vnf" path="res://Scenes/player.tscn" id="2_tp3w1"]
+[ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="3_wsj3p"]
+[ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_yqwgb"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_886uj")
+
+[node name="Player" parent="." instance=ExtResource("2_tp3w1")]
+position = Vector2(627, 306)
+
+[node name="Bubble" parent="." instance=ExtResource("3_wsj3p")]
+position = Vector2(641, 78)
+
+[node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_yqwgb")]
+player_reference = NodePath("../Player")
+bubble_reference = NodePath("../Bubble")
