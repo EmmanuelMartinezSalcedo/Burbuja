@@ -10,9 +10,15 @@ script = ExtResource("1_886uj")
 
 [node name="Player" parent="." instance=ExtResource("2_tp3w1")]
 position = Vector2(627, 306)
+max_speed = 200.0
 
 [node name="Bubble" parent="." instance=ExtResource("3_wsj3p")]
 position = Vector2(641, 78)
+volume = 7.0
+density = 1.0
+speed = 20.0
+max_speed = 50.0
+health = 200.0
 
 [node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_yqwgb")]
 player_reference = NodePath("../Player")

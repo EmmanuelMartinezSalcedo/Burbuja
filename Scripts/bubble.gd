@@ -9,13 +9,7 @@ var invincibility_timer = 0.0  # Temporizador para la invencibilidad
 var draining = false
 
 func _ready() -> void:
-	volume = 7.0  # Volumen del jugador
-	density = 1  # Densidad del jugador (ajustable según el objeto)
-	speed = 20.0  # Velocidad base de movimiento del jugador
-	max_speed = 50.0  # Límite máximo de velocidad
-	momentum_x = 0.97
-	momentum_y = 0.95
-	health = 200.0
+	pass
 
 func user_input(delta: float) -> void:
 	if is_following_player and player and Input.is_action_pressed("ui_accept"):
