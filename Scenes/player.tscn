@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dt2va7o282vnf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_55p7j"]
-[ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="2_8usoi"]
 [ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="2_a6u7l"]
+[ext_resource type="Texture2D" uid="uid://58n3bt4fajwm" path="res://Sprites/player/diver.png" id="2_b5e87"]
 [ext_resource type="PackedScene" uid="uid://btbfwy3lfgqu2" path="res://Scenes/gun.tscn" id="3_jtqt1"]
 [ext_resource type="PackedScene" uid="uid://b451dhlk3eevs" path="res://Scenes/knife.tscn" id="4_g6ocr"]
 [ext_resource type="Material" uid="uid://b2hgr4k1kfajk" path="res://Shaders/underwaterMaterial.tres" id="5_bg6aq"]
@@ -33,13 +33,18 @@ shape = SubResource("RectangleShape2D_yokfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
-texture = ExtResource("2_8usoi")
+position = Vector2(0, 9)
+scale = Vector2(3.505, 3.505)
+texture = ExtResource("2_b5e87")
+hframes = 12
+vframes = 6
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="Gun" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("3_jtqt1")]
-position = Vector2(39, 32)
+position = Vector2(27, -3)
+scale = Vector2(0.585, 0.585)
 player_reference = NodePath("..")
 
 [node name="Knife" parent="." instance=ExtResource("4_g6ocr")]
