@@ -19,7 +19,7 @@ var min_distance_below: float = 1000.0  # Distancia mínima desde la burbuja don
 # Llamado cuando el nodo entra por primera vez al árbol de nodos
 func _ready() -> void:
 	# Asume que la burbuja está en el nodo padre o ajusta según tu escena
-	bubble_position = bubble_reference.position  # Posición de la burbuja (ajusta según la escena)
+	bubble_position = get_parent().position  # Posición de la burbuja (ajusta según la escena)
 
 # Llamado cada frame. 'delta' es el tiempo transcurrido desde el último frame
 func _process(delta: float) -> void:

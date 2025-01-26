@@ -29,7 +29,3 @@ func _process(delta: float) -> void:
 	# Si el tiempo de vida excede el tiempo límite, eliminamos el nodo
 	if time_alive >= lifetime:
 		queue_free()  # Elimina el nodo de la escena
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
-			call_deferred("queue_free")
