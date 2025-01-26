@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wpkyuu8nh6y2"]
+[gd_scene load_steps=11 format=3 uid="uid://wpkyuu8nh6y2"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_886uj"]
 [ext_resource type="Texture2D" uid="uid://b8sg62gwu745o" path="res://Sprites/parallax4.png" id="2_qeaj7"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="3_wsj3p"]
 [ext_resource type="Texture2D" uid="uid://dne4sr77fsp8x" path="res://Sprites/parallax2.png" id="4_x7osy"]
 [ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_yqwgb"]
+[ext_resource type="AudioStream" uid="uid://dbp0dqsojl20r" path="res://Sound/deep1.wav" id="8_1abt5"]
+[ext_resource type="AudioStream" uid="uid://c7ceagc4rj073" path="res://Sound/deep2.wav" id="9_d0ryd"]
+[ext_resource type="AudioStream" uid="uid://cdx45qyo3txuy" path="res://Sound/deep3.wav" id="10_b38ey"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_886uj")
@@ -59,3 +62,17 @@ bubble_reference = NodePath("../Bubble")
 
 [node name="Levels" type="Node2D" parent="."]
 modulate = Color(0.466071, 0.852452, 0.89017, 1)
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("8_1abt5")
+volume_db = 15.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("9_d0ryd")
+volume_db = 15.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("10_b38ey")
+volume_db = 15.0

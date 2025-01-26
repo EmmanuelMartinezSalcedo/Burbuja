@@ -24,6 +24,7 @@ const to_generate = 7
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	$Music.get_children().pick_random().play()
 	var curr = 0
 	var offset = 20 * tile_sz
 	for l in range(to_generate):

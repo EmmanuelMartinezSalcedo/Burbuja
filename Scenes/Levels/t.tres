@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://8mxqk7rtbwtt"]
 
-[ext_resource type="PackedScene" path="res://Scenes/shopOpener.tscn" id="1_2ok34"]
+[ext_resource type="PackedScene" uid="uid://bmhwdkx2juk02" path="res://Scenes/shopOpener.tscn" id="1_2ok34"]
 [ext_resource type="Texture2D" uid="uid://cvcupca8g0qf1" path="res://Sprites/Tileset.png" id="1_eynb8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_upetv"]

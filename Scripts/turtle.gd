@@ -53,8 +53,10 @@ func _process(delta: float) -> void:
 	#position += velocity * delta
 	move_and_slide()
 	if health <= 0:
-			get_parent().remove_child(self)
-			queue_free()
+		var dd = damage_scene.instantiate()
+		dd.position = position
+		get_parent().add_child(dd)
+		call_deferred("queue_free")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):

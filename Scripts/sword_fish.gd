@@ -36,8 +36,10 @@ func _process(delta: float) -> void:
 		velocity = velocity.normalized() * max_speed
 	
 	if health <= 0:
-			get_parent().remove_child(self)
-			queue_free()
+		var dd = damage_scene.instantiate()
+		dd.position = position
+		get_parent().add_child(dd)
+		call_deferred("queue_free")
 	
 	move_and_slide()
 

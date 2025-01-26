@@ -11,6 +11,8 @@ class_name Entity
 const gravity = 10  # Gravedad
 const water_density = 2  # Densidad del agua
 
+var damage_scene = preload("res://Scenes/damage.tscn")
+
 var momentum_x = 0.97
 var momentum_y = 0.95
 
