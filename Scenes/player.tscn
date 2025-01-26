@@ -64,4 +64,11 @@ position = Vector2(0.5, -0.5)
 scale = Vector2(0.325, 0.325)
 shape = SubResource("RectangleShape2D_60h33")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -39.0
+offset_right = 19.0
+offset_bottom = -23.0
+text = "00"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

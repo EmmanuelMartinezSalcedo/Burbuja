@@ -4,6 +4,11 @@ var bubble: CharacterBody2D = null  # La burbuja con la que interactuaremos
 var invincible = false
 var invincibility_timer = 0.0  # Temporizador para la invencibilidad
 var invincibility_duration = 1.0  # Duración de la invencibilidad en segundos
+var life_loss_interval = 2.0  # Intervalo en segundos para perder vida
+var life_loss_amount = 1  # Cantidad de vida que pierde el jugador en cada intervalo
+var life_loss_timer = 0.0  # Temporizador para perder vida
+
+@onready var health_indicator = $Label
 
 func user_input() -> void:
 	# Movimiento del jugador
@@ -22,9 +27,16 @@ func user_input() -> void:
 		velocity.x *= momentum_x
 
 func _process(delta: float) -> void:
-	
+	health_indicator.text = str(health)
 	user_input()
-	
+
+	# Actualizar el temporizador de pérdida de vida
+	life_loss_timer -= delta
+	if life_loss_timer <= 0:
+		# Perder vida y reiniciar el temporizador
+		health -= life_loss_amount
+		life_loss_timer = life_loss_interval  # Reiniciar el temporizador
+
 	var buoyant_force = hydrostatic_force(volume)  # Fuerza hacia arriba
 	var body_weight = weight()  # Fuerza hacia abajo
 
@@ -35,12 +47,11 @@ func _process(delta: float) -> void:
 	# Límite de velocidad
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
-	#position += velocity * delta
+
 	move_and_slide()
 	
 	# Manejo del temporizador de invencibilidad
 	if invincible:
-		# Aumentar el temporizador de invencibilidad
 		invincibility_timer -= delta
 		if invincibility_timer <= 0:
 			invincible = false  # Desactivar la invencibilidad
@@ -57,7 +68,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		# Activamos invencibilidad
 		invincible = true
 		invincibility_timer = invincibility_duration  # Reiniciamos el temporizador
-
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
