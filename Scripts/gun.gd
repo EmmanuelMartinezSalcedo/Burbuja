@@ -8,6 +8,7 @@ var cooldown_timer = 0.0  # Temporizador para el cooldown
 var rotation_speed = 5.0  # Cuanto más alto, más rápido seguirá el cursor
 
 @export var player_reference : Node2D
+@export var move_distance : float = 100.0  # Distancia que el jugador se moverá al disparar
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,12 +27,18 @@ func _process(delta: float) -> void:
 	
 	# Disparo solo si el cooldown ha pasado
 	if Input.is_action_just_pressed("fire") and cooldown_timer <= 0:
+		# Crear la bala
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
-		# Nota: Arreglar la posición de la burbuja
+		# Posicionar la bala
 		bullet_instance.global_position = global_position
 		bullet_instance.rotation = rotation
 		
+		# Mover al jugador en la dirección opuesta al disparo
+		var opposite_direction = fmod(rotation + PI, 2 * PI)  # Dirección opuesta (uso de fmod)
+		player_reference.velocity += Vector2(cos(opposite_direction), sin(opposite_direction)) * move_distance
+		
+		# Reducir la salud del jugador
 		player_reference.health -= 1
 		
 		# Reiniciar el cooldown

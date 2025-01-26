@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dt2va7o282vnf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_55p7j"]
-[ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="2_a6u7l"]
+[ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="2_jkmww"]
 [ext_resource type="PackedScene" uid="uid://btbfwy3lfgqu2" path="res://Scenes/gun.tscn" id="3_jtqt1"]
 [ext_resource type="PackedScene" uid="uid://b451dhlk3eevs" path="res://Scenes/knife.tscn" id="4_vo5w2"]
 
@@ -23,16 +23,20 @@ health = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
+scale = Vector2(0.57, 0.57)
 shape = SubResource("RectangleShape2D_60h33")
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -0.5)
+scale = Vector2(0.645, 0.645)
 shape = SubResource("RectangleShape2D_yokfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_a6u7l")
+modulate = Color(1, 0.8, 1, 1)
+scale = Vector2(1.525, 1.525)
+texture = ExtResource("2_jkmww")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
