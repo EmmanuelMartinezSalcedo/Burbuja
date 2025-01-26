@@ -63,7 +63,6 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		# Cargar la escena de Game Over
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-	print("Bubble health: " + str(health))
 
 func _on_grabbable_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):

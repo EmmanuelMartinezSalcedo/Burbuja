@@ -54,7 +54,7 @@ func spawn_fish() -> void:
 
 	# Establecer la nueva posición del pez
 	fish_instance.position = bubble_position + Vector2(x_offset, y_offset)
-
+	print(fish_instance.position is TileSet)
 	# Agregar el pez a la escena
 	add_child(fish_instance)
 

@@ -47,14 +47,12 @@ func _process(delta: float) -> void:
 	
 	if health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-	print("Player health: " + str(health))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bubble"):
 		bubble = area.get_parent()  # Guarda la referencia a la burbuja
 		bubble.can_follow_player = true
 	if area.is_in_group("enemy") and not invincible:
-		print("Took damage: " + str(area.get_parent().damage))
 		health -= area.get_parent().damage
 		# Activamos invencibilidad
 		invincible = true
