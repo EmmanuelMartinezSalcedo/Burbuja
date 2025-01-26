@@ -1,37 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://t6ngrnji3p5g"]
+[gd_scene load_steps=6 format=3 uid="uid://t6ngrnji3p5g"]
 
-[ext_resource type="Script" path="res://Scripts/deep_dive.gd" id="1_ehy02"]
-[ext_resource type="PackedScene" uid="uid://dgvsn1bijyiw2" path="res://Scenes/player.tscn" id="1_ms3e4"]
-[ext_resource type="PackedScene" uid="uid://wvtf44dv2iex" path="res://Scenes/bubble.tscn" id="2_awers"]
-[ext_resource type="PackedScene" uid="uid://ycao18tbtnwb" path="res://Scenes/fish_spawner.tscn" id="3_3hb12"]
-[ext_resource type="PackedScene" uid="uid://cjl2fuvs2aok4" path="res://Scenes/fish.tscn" id="5_g6ur0"]
-[ext_resource type="PackedScene" uid="uid://hpsu63cikuse" path="res://Scenes/shop.tscn" id="6_g7fp8"]
+[ext_resource type="PackedScene" uid="uid://dgvsn1bijyiw2" path="res://Scenes/player.tscn" id="1_6dcni"]
+[ext_resource type="PackedScene" uid="uid://wvtf44dv2iex" path="res://Scenes/bubble.tscn" id="2_bxrkf"]
+[ext_resource type="PackedScene" path="res://Scenes/turtle.tscn" id="3_s3j42"]
+
+[sub_resource type="Gradient" id="Gradient_wydvk"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nwfyh"]
+gradient = SubResource("Gradient_wydvk")
 
 [node name="Deep Dive" type="Node2D"]
-script = ExtResource("1_ehy02")
 
-[node name="Level" type="Node2D" parent="."]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1148.0
+offset_top = 2.0
+offset_right = 2386.0
+offset_bottom = 1149.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_nwfyh")
+flip_h = true
 
-[node name="Player" parent="Level" instance=ExtResource("1_ms3e4")]
-position = Vector2(520, 492)
-scale = Vector2(1.905, 1.905)
+[node name="Bubble" parent="." instance=ExtResource("2_bxrkf")]
+position = Vector2(487, 382)
+scale = Vector2(0.655, 0.655)
 
-[node name="Bubble" parent="Level" instance=ExtResource("2_awers")]
-position = Vector2(581, 322)
-scale = Vector2(0.63, 0.63)
+[node name="Player" parent="." instance=ExtResource("1_6dcni")]
+position = Vector2(643, 394)
+scale = Vector2(0.565, 0.565)
 
-[node name="FishSpawner" parent="Level" instance=ExtResource("3_3hb12")]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 846.0
+offset_top = 369.0
+offset_right = 886.0
+offset_bottom = 409.0
+color = Color(1, 0, 1, 1)
 
-[node name="Fish" parent="Level" instance=ExtResource("5_g6ur0")]
-position = Vector2(190, 494)
-scale = Vector2(1.94, 1.94)
-
-[node name="Shopping" type="Node2D" parent="."]
-
-[node name="Shop" parent="Shopping" instance=ExtResource("6_g7fp8")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="Turtle" parent="." instance=ExtResource("3_s3j42")]

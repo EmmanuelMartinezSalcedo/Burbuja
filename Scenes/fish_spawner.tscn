@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ycao18tbtnwb"]
+[gd_scene load_steps=2 format=3 uid="uid://ycao18tbtnwb"]
+
+[ext_resource type="Script" path="res://Scripts/fish_spawner.gd" id="1_h58nd"]
 
 [node name="FishSpawner" type="Node2D"]
+script = ExtResource("1_h58nd")

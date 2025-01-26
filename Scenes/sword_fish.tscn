@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://2m4gwgkjekmy"]
+
+[ext_resource type="Script" path="res://Scripts/sword_fish.gd" id="1_0pd63"]
+[ext_resource type="Texture2D" uid="uid://crm6rpgotc3an" path="res://Sprites/swordfish/Attack.png" id="2_dg1xu"]
+[ext_resource type="Texture2D" uid="uid://bc1kj8uaq053k" path="res://Sprites/swordfish/Hurt.png" id="3_ut1eb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_153lk"]
+size = Vector2(37.2973, 6.48649)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a7v4"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5nqe"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlnm1"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ee4"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko3cc"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b0d6"]
+atlas = ExtResource("2_dg1xu")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7ije"]
+atlas = ExtResource("3_ut1eb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1us5"]
+atlas = ExtResource("3_ut1eb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jn2t8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5nqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlnm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ee4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko3cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b0d6")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7ije")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1us5")
+}],
+"loop": true,
+"name": &"take_damage",
+"speed": 5.0
+}]
+
+[node name="SwordFish" type="CharacterBody2D"]
+scale = Vector2(1.85, 1.85)
+script = ExtResource("1_0pd63")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.810812, 1.08108)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_153lk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jn2t8")
+animation = &"take_damage"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

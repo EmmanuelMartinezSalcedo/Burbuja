@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1y62h0dnqlaq"]
+
+[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_62y88"]
+[ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="1_sy6hg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yokfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
+
+[node name="Bubble" type="CharacterBody2D"]
+script = ExtResource("1_62y88")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bubble"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yokfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_60h33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sy6hg")

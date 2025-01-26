@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4440q1wrbmvy"]
+
+[ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="1_r0cmf"]
+
+[sub_resource type="Curve" id="Curve_nkq6x"]
+_data = [Vector2(0.0842105, 0.923077), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Damage" type="Node2D"]
+scale = Vector2(-0.1, -0.1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+explosiveness = 1.0
+texture = ExtResource("1_r0cmf")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 145.24
+initial_velocity_max = 868.25
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_nkq6x")

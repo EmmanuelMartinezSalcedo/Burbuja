@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://2m4gwgkjekmy"]
+
+[ext_resource type="Script" path="res://Scripts/sword_fish.gd" id="1_0pd63"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_153lk"]
+size = Vector2(41.0811, 11.8919)
+
+[node name="SwordFish" type="CharacterBody2D"]
+scale = Vector2(1.85, 1.85)
+script = ExtResource("1_0pd63")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -22.0
+offset_top = -10.0
+offset_right = 22.0
+offset_bottom = 10.0
+color = Color(0.952274, 0.457467, 0.267661, 1)
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1.86869e-06, 7.08812e-07)
+shape = SubResource("RectangleShape2D_153lk")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

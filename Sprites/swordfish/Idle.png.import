@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c537qmjuyq3n8"
-path="res://.godot/imported/bubble.png-7158fdafbd9a4cab431a459608665d16.ctex"
+uid="uid://b6m0wbg1h0w1u"
+path="res://.godot/imported/Idle.png-5999c7a20edb2a50c27e47b9977ef24c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bubble.png"
-dest_files=["res://.godot/imported/bubble.png-7158fdafbd9a4cab431a459608665d16.ctex"]
+source_file="res://Sprites/swordfish/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-5999c7a20edb2a50c27e47b9977ef24c.ctex"]
 
 [params]
 

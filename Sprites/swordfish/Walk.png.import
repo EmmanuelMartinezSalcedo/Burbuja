@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c537qmjuyq3n8"
-path="res://.godot/imported/bubble.png-7158fdafbd9a4cab431a459608665d16.ctex"
+uid="uid://b158fw8sqjp8q"
+path="res://.godot/imported/Walk.png-68f8540d0702a11b3ca1a1a67f18849a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bubble.png"
-dest_files=["res://.godot/imported/bubble.png-7158fdafbd9a4cab431a459608665d16.ctex"]
+source_file="res://Sprites/swordfish/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-68f8540d0702a11b3ca1a1a67f18849a.ctex"]
 
 [params]
 
