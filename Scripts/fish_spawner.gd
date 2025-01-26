@@ -1,8 +1,10 @@
 extends Node2D
 
 # Paths a las escenas de los peces y las tortugas
-var fish_scene_path: String = "res://Scenes/sword_fish.tscn"
-var turtle_scene_path: String = "res://Scenes/turtle.tscn"
+const fish_scene_path: String = "res://Scenes/sword_fish.tscn"
+@onready var fish_scene = preload(fish_scene_path)
+const turtle_scene_path: String = "res://Scenes/turtle.tscn"
+@onready var turtle_scene = preload(turtle_scene_path)
 var fish_spawn_interval: float = 5.0  # Intervalo de tiempo entre los spawns de los peces
 var turtle_spawn_interval: float = 5.0  # Intervalo de tiempo entre los spawns de las tortugas
 var time_since_last_fish_spawn: float = 0.0  # Tiempo desde el último spawn de pez
@@ -11,8 +13,8 @@ var bubble_position: Vector2  # La posición de la burbuja
 var spawn_radius: float = 400.0  # Rango para el desplazamiento de las criaturas debajo de la burbuja
 var min_distance_below: float = 1000.0  # Distancia mínima desde la burbuja donde las criaturas aparecen
 
-@export var player_reference : Node2D
-@export var bubble_reference : Node2D
+@export var player_reference : Entity
+@export var bubble_reference : Entity
 
 # Llamado cuando el nodo entra por primera vez al árbol de nodos
 func _ready() -> void:
@@ -40,12 +42,10 @@ func _process(delta: float) -> void:
 
 # Función para hacer spawn de un pez en una posición debajo de la burbuja
 func spawn_fish() -> void:
-	# Cargar la escena del pez
-	var fish_scene = load(fish_scene_path)
 
 	# Crear una instancia de la escena del pez
 	var fish_instance = fish_scene.instantiate()
-	fish_instance.bubble_position = bubble_reference.position
+	fish_instance.bubble = bubble_reference
 	fish_instance.direction_to_bubble = (bubble_reference.position - position).normalized()
 
 	# Calcular una posición debajo de la burbuja
@@ -60,8 +60,6 @@ func spawn_fish() -> void:
 
 # Función para hacer spawn de una tortuga en una posición debajo de la burbuja
 func spawn_turtle() -> void:
-	# Cargar la escena de la tortuga
-	var turtle_scene = load(turtle_scene_path)
 
 	# Crear una instancia de la escena de la tortuga
 	var turtle_instance = turtle_scene.instantiate()

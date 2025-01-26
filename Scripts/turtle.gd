@@ -36,13 +36,7 @@ func _process(delta: float) -> void:
 	# Rotar la entidad para que apunte hacia el jugador
 	rotation = direction_to_player.angle()  # Obtener el ángulo del vector de dirección
 
-	rotation_degrees = wrap(rotation_degrees, 0	, 360)
-	
-	if rotation_degrees > 90 and rotation_degrees < 270:
-		scale.y = -1
-	else:
-		scale.y = 1 
-		
+	rotation_degrees = wrap(rotation_degrees, 0, 360)
 
 	# Aplicar la fuerza hidrostática y el peso (si es necesario)
 	var buoyant_force = hydrostatic_force(volume)  # Fuerza hacia arriba

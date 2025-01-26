@@ -10,6 +10,7 @@ var bubble_position: Vector2  # Posición de la burbuja
 func _ready() -> void:
 	animSprite.play("attack")
 
+	direction_to_bubble = (bubble.position - position).normalized()
 	# Calcular la dirección hacia la burbuja cuando el pez se crea
 	#if bubble:
 		#direction_to_bubble = (bubble.position - position).normalized()  # Dirección hacia la burbuja
