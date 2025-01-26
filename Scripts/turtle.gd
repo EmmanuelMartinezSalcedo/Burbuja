@@ -64,6 +64,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		var bullet = area.get_parent()
 		health -= bullet.damage
 		
+		var tween = get_tree().create_tween()
+		tween.tween_property($AnimatedSprite2D, "modulate", Color.RED, 1)
+		tween.tween_property($AnimatedSprite2D, "modulate", Color.WHITE, 1)
+		
 		print(bullet.damage)
 		
 		bullet.queue_free()

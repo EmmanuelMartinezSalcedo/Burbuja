@@ -129,3 +129,15 @@ offset_bottom = 202.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 202.0
+offset_right = 211.0
+offset_bottom = 328.0
+text = "     Choose
+       A - D
+
+      Select
+       Enter"

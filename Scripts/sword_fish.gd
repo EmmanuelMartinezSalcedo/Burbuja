@@ -43,7 +43,6 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		# Obtiene el nodo del "bullet" y reduce la salud
@@ -51,11 +50,17 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		health -= bullet.damage
 		
 		bullet.queue_free()
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property($AnimatedSprite2D, "modulate", Color.RED, 1)
+		tween.tween_property($AnimatedSprite2D, "modulate", Color.WHITE, 1)
+	
 		if health <= 0:
-			get_parent().remove_child(self)
-			queue_free()
+			var dd = damage_scene.instantiate()
+			dd.position = position
+			get_parent().add_child(dd)
+			call_deferred("queue_free")
 			
 	if area.is_in_group("sword"):
 		var sword = area.get_parent()
 		health -= sword.damage
-		 

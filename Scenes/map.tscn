@@ -56,6 +56,22 @@ max_speed = 500.0
 use_parent_material = true
 position = Vector2(641, 78)
 
+[node name="Label" type="Label" parent="Bubble"]
+offset_left = -288.0
+offset_top = -71.0
+offset_right = -248.0
+offset_bottom = -55.0
+text = "Controls:
+             Move
+                W
+             A S D
+
+            Attack
+Left click | Right click
+
+      Pull the bubble!
+             Space"
+
 [node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_yqwgb")]
 player_reference = NodePath("../Player")
 bubble_reference = NodePath("../Bubble")
