@@ -95,6 +95,8 @@ size = Vector2(26.6112, 10.8108)
 
 [node name="Turtle" type="CharacterBody2D"]
 scale = Vector2(2.405, 2.405)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_wbiyj")
 volume = 70.0
 density = 1.9

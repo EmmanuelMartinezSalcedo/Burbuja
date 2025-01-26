@@ -10,6 +10,8 @@ script = ExtResource("1_886uj")
 
 [node name="Player" parent="." instance=ExtResource("2_tp3w1")]
 position = Vector2(627, 306)
+scale = Vector2(1, 1)
+max_speed = 500.0
 
 [node name="Bubble" parent="." instance=ExtResource("3_wsj3p")]
 position = Vector2(641, 78)

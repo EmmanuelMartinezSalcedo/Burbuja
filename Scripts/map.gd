@@ -16,7 +16,7 @@ var prob : Array[Array] = [
 	[28, 0, 28, 28, 16]
 ]
 
-var num_tiles : Array[int] = [23, 50, 23, 23, 23]
+var num_tiles : Array[int] = [24, 51, 51, 31, 31]
 
 const tile_sz = 32
 const to_generate = 7
@@ -36,6 +36,7 @@ func _ready() -> void:
 				j = i
 				break
 		var node = levels[j].instantiate()
+		node.get_children().pick_random().enabled = true
 		node.position.y = offset;
 		add_child(node)
 		curr = j
