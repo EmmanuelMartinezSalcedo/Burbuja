@@ -1,17 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://wpkyuu8nh6y2"]
+[gd_scene load_steps=8 format=3 uid="uid://wpkyuu8nh6y2"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_886uj"]
+[ext_resource type="Texture2D" uid="uid://b8sg62gwu745o" path="res://Sprites/parallax4.png" id="2_qeaj7"]
 [ext_resource type="PackedScene" uid="uid://dt2va7o282vnf" path="res://Scenes/player.tscn" id="2_tp3w1"]
+[ext_resource type="Texture2D" uid="uid://ctj06ww6krt7u" path="res://Sprites/parallax3.png" id="3_aehm7"]
 [ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="3_wsj3p"]
+[ext_resource type="Texture2D" uid="uid://dne4sr77fsp8x" path="res://Sprites/parallax2.png" id="4_x7osy"]
 [ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_yqwgb"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_886uj")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1024, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_qeaj7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 1024)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 3
+texture = ExtResource("3_aehm7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 1024)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1024, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_repeat = 2
+texture = ExtResource("4_x7osy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 1024)
+
 [node name="Player" parent="." instance=ExtResource("2_tp3w1")]
 use_parent_material = true
-position = Vector2(627, 306)
-scale = Vector2(1, 1)
 max_speed = 500.0
 
 [node name="Bubble" parent="." instance=ExtResource("3_wsj3p")]
@@ -21,3 +56,6 @@ position = Vector2(641, 78)
 [node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_yqwgb")]
 player_reference = NodePath("../Player")
 bubble_reference = NodePath("../Bubble")
+
+[node name="Levels" type="Node2D" parent="."]
+modulate = Color(0.466071, 0.852452, 0.89017, 1)

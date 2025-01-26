@@ -16,7 +16,7 @@ var prob : Array[Array] = [
 	[28, 0, 28, 28, 16]
 ]
 
-var num_tiles : Array[int] = [24, 51, 51, 31, 31]
+var num_tiles : Array[int] = [24, 52, 51, 31, 31]
 
 const tile_sz = 32
 const to_generate = 7
@@ -25,7 +25,7 @@ var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	var curr = 0
-	var offset = 0
+	var offset = 20 * tile_sz
 	for l in range(to_generate):
 		var r = rng.randi_range(0, 100)
 		var acc = 0
@@ -38,7 +38,8 @@ func _ready() -> void:
 		var node = levels[j].instantiate()
 		node.get_children().pick_random().enabled = true
 		node.position.y = offset;
-		add_child(node)
+		$Levels.add_child(node)
+		#add_child(node)
 		curr = j
 		offset += tile_sz * num_tiles[j]
 
