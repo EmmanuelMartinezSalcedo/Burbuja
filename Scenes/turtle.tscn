@@ -1,8 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://csrb7ridqgete"]
+[gd_scene load_steps=19 format=3 uid="uid://csrb7ridqgete"]
 
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="1_sirv0"]
 [ext_resource type="Script" path="res://Scripts/turtle.gd" id="1_wbiyj"]
 [ext_resource type="Texture2D" uid="uid://blt64ww12me32" path="res://Sprites/turtle/Attack.png" id="2_k7lpq"]
 [ext_resource type="Texture2D" uid="uid://dp3jgwlbwxvn5" path="res://Sprites/turtle/Idle.png" id="3_hdrdm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr7y3"]
+shader = ExtResource("1_sirv0")
+shader_parameter/time = null
+shader_parameter/wave_speed = 0.1
+shader_parameter/wave_strength = 0.03
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i01ua"]
 size = Vector2(20, 8)
@@ -94,6 +101,8 @@ animations = [{
 size = Vector2(26.6112, 10.8108)
 
 [node name="Turtle" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_gr7y3")
+use_parent_material = true
 scale = Vector2(2.405, 2.405)
 script = ExtResource("1_wbiyj")
 volume = 70.0
@@ -110,6 +119,7 @@ position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_i01ua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_pep11")
 animation = &"attack"
 frame_progress = 0.836289

@@ -28,6 +28,7 @@ bubble=""
 player=""
 enemy=""
 bullet=""
+Sword=""
 
 [input]
 

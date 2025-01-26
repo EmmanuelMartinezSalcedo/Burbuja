@@ -36,8 +36,10 @@ func _process(delta: float) -> void:
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
 	
-	# Actualizar la posición del pez
-	#position += velocity * delta
+	if health <= 0:
+			get_parent().remove_child(self)
+			queue_free()
+	
 	move_and_slide()
 
 
@@ -53,3 +55,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		if health <= 0:
 			get_parent().remove_child(self)
 			queue_free()
+			
+	if area.is_in_group("sword"):
+		var sword = area.get_parent()
+		health -= sword.damage
+		
