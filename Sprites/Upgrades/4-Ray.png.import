@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm7copvfgf6au"
-path="res://.godot/imported/3-Slash.png-bf05ed999c1239625f31fc7ee9225cce.ctex"
+uid="uid://djnafsb04uua4"
+path="res://.godot/imported/4-Ray.png-096b2df3d2011dcd163a5231de6a6afd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Upgrades/3-Slash.png"
-dest_files=["res://.godot/imported/3-Slash.png-bf05ed999c1239625f31fc7ee9225cce.ctex"]
+source_file="res://Sprites/Upgrades/4-Ray.png"
+dest_files=["res://.godot/imported/4-Ray.png-096b2df3d2011dcd163a5231de6a6afd.ctex"]
 
 [params]
 

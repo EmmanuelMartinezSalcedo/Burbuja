@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://hpsu63cikuse"]
+[gd_scene load_steps=6 format=3 uid="uid://hpsu63cikuse"]
 
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="1_p4mis"]
 [ext_resource type="Texture2D" uid="uid://bgwfgblkvy6ij" path="res://Sprites/Background.png" id="2_w76ji"]
 [ext_resource type="Theme" uid="uid://qquh35kgig6e" path="res://Themes/Shop_Theme.tres" id="3_4n211"]
 [ext_resource type="PackedScene" uid="uid://lq5h6frulk6a" path="res://Scenes/selector.tscn" id="3_qsxbm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fp4b6"]
+font_size = 37
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -15,16 +18,16 @@ grow_vertical = 2
 script = ExtResource("1_p4mis")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1296, 324)
-scale = Vector2(3.375, 3.375)
+position = Vector2(1460, 365)
+scale = Vector2(3.80208, 3.80208)
 texture = ExtResource("2_w76ji")
 
 [node name="Purchaseable_Items" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 256.0
-offset_right = 1088.0
-offset_bottom = 448.0
+offset_left = 267.0
+offset_top = 185.0
+offset_right = 971.0
+offset_bottom = 377.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Purchaseable_Items"]
 layout_mode = 1
@@ -40,3 +43,88 @@ layout_mode = 2
 alignment = 1
 
 [node name="Selector" parent="." instance=ExtResource("3_qsxbm")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 42.0
+offset_right = 823.0
+offset_bottom = 165.0
+text = "Choose your Upgrade"
+label_settings = SubResource("LabelSettings_fp4b6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Item1" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 451.0
+offset_right = 474.0
+offset_bottom = 653.0
+
+[node name="Title1" type="Label" parent="Control/Item1"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 53.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description1" type="Label" parent="Control/Item1"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 201.0
+offset_bottom = 202.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Item2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 451.0
+offset_right = 729.0
+offset_bottom = 653.0
+
+[node name="Title2" type="Label" parent="Control/Item2"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 53.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description2" type="Label" parent="Control/Item2"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 201.0
+offset_bottom = 202.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Item3" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 455.0
+offset_right = 972.0
+offset_bottom = 657.0
+
+[node name="Title3" type="Label" parent="Control/Item3"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 53.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description3" type="Label" parent="Control/Item3"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 201.0
+offset_bottom = 202.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

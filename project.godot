@@ -30,6 +30,10 @@ enemy=""
 bullet=""
 Sword=""
 
+[gui]
+
+theme/custom_font="res://Minecraft.ttf"
+
 [input]
 
 ui_left={

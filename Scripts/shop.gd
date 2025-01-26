@@ -3,21 +3,49 @@ extends Control
 @export var item_id_1: int = 0
 @export var item_id_2: int = 0
 @export var item_id_3: int = 0
-@export var item_id_4: int = 0
-
-@export var random_seed: int = 12345
 
 var first_item: Node
 var second_item: Node
 var third_item: Node
 
+var item_names: Array[String] = [
+"Super Bullets", 
+"Sharper Knife", 
+"Sun Screen", 
+"Weapon Expertise", 
+"Bubble Sort", 
+"Air Refill", 
+"Surface Tension"]
+var items_description: Array[String] = [
+"Pistol has +10% increase Damage", 
+"Knife has +10% increase Damage", 
+"Fully healths the Diver", 
+"Weapons have +4% increase Damage", 
+"Bubble has +10% increase maximum health", 
+"Fully healths the Bubble", 
+"Bubble receives -10% Damage"]
+
 func _ready() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = random_seed
+	rng.randomize()
 	
-	item_id_1 = rng.randi_range(1, 8)
-	item_id_2 = rng.randi_range(1, 8)
-	item_id_3 = rng.randi_range(1, 8)
+	var item_id_1 = rng.randi_range(1, 7)
+
+	var item_id_2 = rng.randi_range(1, 7)
+	while item_id_2 == item_id_1:
+		item_id_2 = rng.randi_range(1, 7)
+
+	var item_id_3 = rng.randi_range(1, 7)
+	while item_id_3 == item_id_1 or item_id_3 == item_id_2:
+		item_id_3 = rng.randi_range(1, 7)
+		
+	$Control/Item1/Title1.text = item_names[item_id_1 - 1]
+	$Control/Item2/Title2.text = item_names[item_id_2 - 1]
+	$Control/Item3/Title3.text = item_names[item_id_3 - 1]
+	
+	$Control/Item1/Description1.text = items_description[item_id_1 - 1]
+	$Control/Item2/Description2.text = items_description[item_id_2 - 1]
+	$Control/Item3/Description3.text = items_description[item_id_3 - 1]
 	
 	var parent_node = $Purchaseable_Items/MarginContainer/HBoxContainer
 	
@@ -35,6 +63,8 @@ func _ready() -> void:
 	third_item = parent_node.get_child(2)
 	
 	first_item.selected = true
+	update_selector_position(first_item)
+	update_selector_position(first_item)
 	update_selector_position(first_item)
 	
 func _input(event: InputEvent) -> void:
