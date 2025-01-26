@@ -3,81 +3,79 @@
 [ext_resource type="Script" path="res://Scripts/knife.gd" id="1_5ap7y"]
 [ext_resource type="Texture2D" uid="uid://c537qmjuyq3n8" path="res://Sprites/bubble.png" id="2_7x80o"]
 
-[sub_resource type="Animation" id="Animation_uwa56"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jjsa"]
+radius = 12.0
+height = 105.67
+
+[sub_resource type="Animation" id="Animation_c61tu"]
 resource_name = "slash"
-loop_mode = 1
-step = 1.1968
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 2.79253]
+"values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_pshlm"]
+[sub_resource type="Animation" id="Animation_dh07t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D/Area2D/CollisionShape2D:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.94604]
+"values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0pad"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ykjpv"]
 _data = {
-"RESET": SubResource("Animation_pshlm"),
-"slash": SubResource("Animation_uwa56")
+"RESET": SubResource("Animation_dh07t"),
+"slash": SubResource("Animation_c61tu")
 }
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jjsa"]
-radius = 12.0
-height = 60.0
 
 [node name="Knife" type="Node2D"]
 script = ExtResource("1_5ap7y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_w0pad")
-}
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -9.53674e-07)
-rotation = 1.94604
-scale = Vector2(0.34375, 0.893443)
+position = Vector2(-1, -35)
+rotation = 6.28319
+scale = Vector2(1, 1.03151)
 texture = ExtResource("2_7x80o")
-offset = Vector2(-7.62939e-06, -33.578)
+offset = Vector2(-7.62939e-06, -59.578)
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" groups=["Sword"]]
 position = Vector2(0, 1.06742e-06)
 scale = Vector2(2.90909, 1.11927)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(0, -30)
+position = Vector2(0.343748, -27.7168)
 shape = SubResource("CapsuleShape2D_1jjsa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ykjpv")
+}
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

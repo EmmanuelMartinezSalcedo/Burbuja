@@ -40,11 +40,11 @@ texture = ExtResource("2_a6u7l")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Gun" parent="." instance=ExtResource("3_jtqt1")]
+[node name="Gun" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("3_jtqt1")]
 position = Vector2(39, 32)
+player_reference = NodePath("..")
 
 [node name="Knife" parent="." instance=ExtResource("4_g6ocr")]
-position = Vector2(39, 32)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." node_paths=PackedStringArray("camera")]
 z_index = 1000
