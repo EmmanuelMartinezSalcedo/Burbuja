@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dti4r1e43apft"]
+[gd_scene load_steps=8 format=3 uid="uid://dti4r1e43apft"]
 
 [ext_resource type="PackedScene" uid="uid://dt2va7o282vnf" path="res://Scenes/player.tscn" id="1_6dcni"]
 [ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="2_bxrkf"]
 [ext_resource type="PackedScene" uid="uid://csrb7ridqgete" path="res://Scenes/turtle.tscn" id="3_s3j42"]
 [ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_nv48n"]
+[ext_resource type="PackedScene" uid="uid://hpsu63cikuse" path="res://Scenes/shop.tscn" id="6_g7fp8"]
 
 [sub_resource type="Gradient" id="Gradient_wydvk"]
 
@@ -41,3 +42,12 @@ color = Color(1, 0, 1, 1)
 [node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_nv48n")]
 player_reference = NodePath("../Player")
 bubble_reference = NodePath("../Bubble")
+
+[node name="Shopping" type="Node2D" parent="."]
+
+[node name="Shop" parent="Shopping" instance=ExtResource("6_g7fp8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

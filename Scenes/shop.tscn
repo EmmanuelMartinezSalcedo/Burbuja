@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://hpsu63cikuse"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_p4mis"]
+[ext_resource type="Texture2D" uid="uid://bgwfgblkvy6ij" path="res://Sprites/Background.png" id="2_w76ji"]
+[ext_resource type="Theme" uid="uid://qquh35kgig6e" path="res://Themes/Shop_Theme.tres" id="3_4n211"]
+[ext_resource type="PackedScene" uid="uid://lq5h6frulk6a" path="res://Scenes/selector.tscn" id="3_qsxbm"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p4mis")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1296, 324)
+scale = Vector2(3.375, 3.375)
+texture = ExtResource("2_w76ji")
+
+[node name="Purchaseable_Items" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 1088.0
+offset_bottom = 448.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Purchaseable_Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4n211")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Purchaseable_Items/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Selector" parent="." instance=ExtResource("3_qsxbm")]
