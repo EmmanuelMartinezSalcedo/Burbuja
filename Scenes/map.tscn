@@ -9,11 +9,13 @@
 script = ExtResource("1_886uj")
 
 [node name="Player" parent="." instance=ExtResource("2_tp3w1")]
+use_parent_material = true
 position = Vector2(627, 306)
 scale = Vector2(1, 1)
 max_speed = 500.0
 
 [node name="Bubble" parent="." instance=ExtResource("3_wsj3p")]
+use_parent_material = true
 position = Vector2(641, 78)
 
 [node name="FishSpawner" parent="." node_paths=PackedStringArray("player_reference", "bubble_reference") instance=ExtResource("4_yqwgb")]
