@@ -1,24 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://t6ngrnji3p5g"]
+[gd_scene load_steps=7 format=3 uid="uid://t6ngrnji3p5g"]
 
 [ext_resource type="Script" path="res://Scripts/deep_dive.gd" id="1_ehy02"]
 [ext_resource type="PackedScene" uid="uid://dgvsn1bijyiw2" path="res://Scenes/player.tscn" id="1_ms3e4"]
 [ext_resource type="PackedScene" uid="uid://wvtf44dv2iex" path="res://Scenes/bubble.tscn" id="2_awers"]
 [ext_resource type="PackedScene" uid="uid://ycao18tbtnwb" path="res://Scenes/fish_spawner.tscn" id="3_3hb12"]
 [ext_resource type="PackedScene" uid="uid://cjl2fuvs2aok4" path="res://Scenes/fish.tscn" id="5_g6ur0"]
+[ext_resource type="PackedScene" uid="uid://hpsu63cikuse" path="res://Scenes/shop.tscn" id="6_g7fp8"]
 
 [node name="Deep Dive" type="Node2D"]
 script = ExtResource("1_ehy02")
 
-[node name="Player" parent="." instance=ExtResource("1_ms3e4")]
+[node name="Level" type="Node2D" parent="."]
+visible = false
+
+[node name="Player" parent="Level" instance=ExtResource("1_ms3e4")]
 position = Vector2(520, 492)
 scale = Vector2(1.905, 1.905)
 
-[node name="Bubble" parent="." instance=ExtResource("2_awers")]
+[node name="Bubble" parent="Level" instance=ExtResource("2_awers")]
 position = Vector2(581, 322)
 scale = Vector2(0.63, 0.63)
 
-[node name="FishSpawner" parent="." instance=ExtResource("3_3hb12")]
+[node name="FishSpawner" parent="Level" instance=ExtResource("3_3hb12")]
 
-[node name="Fish" parent="." instance=ExtResource("5_g6ur0")]
+[node name="Fish" parent="Level" instance=ExtResource("5_g6ur0")]
 position = Vector2(190, 494)
 scale = Vector2(1.94, 1.94)
+
+[node name="Shopping" type="Node2D" parent="."]
+
+[node name="Shop" parent="Shopping" instance=ExtResource("6_g7fp8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
