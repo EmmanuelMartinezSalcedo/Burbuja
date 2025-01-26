@@ -2,7 +2,7 @@ extends Node2D
 
 var speed: float = 500.0  # Velocidad inicial
 var deceleration: float = 300.0  # Factor de desaceleración
-var damage: int = 50
+var damage: int = 50 + Globals.upgrades_counter[0] * (0.1 * 50) + Globals.upgrades_counter[3] * (0.04 * 50)
 var lifetime: float = 5.0  # Tiempo de vida antes de desaparecer (en segundos)
 var time_alive: float = 0.0  # Tiempo transcurrido desde que el nodo comenzó a existir
 

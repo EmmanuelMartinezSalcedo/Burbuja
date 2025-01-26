@@ -87,7 +87,10 @@ func _on_hitbox_2_area_entered(area: Area2D) -> void:
 	
 	if area.is_in_group("enemy") and not invincible:
 		print("Took damage: " + str(area.get_parent().damage))
-		health -= area.get_parent().damage
+		health -= area.get_parent().damage + Globals.upgrades_counter[6] * (0.1 * area.get_parent().damage)
 		# Activamos invencibilidad
 		invincible = true
 		invincibility_timer = invincibility_duration  # Reiniciamos el temporizador
+
+func Upgrade() -> void:
+	health = health + 50

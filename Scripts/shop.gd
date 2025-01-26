@@ -22,7 +22,7 @@ var items_description: Array[String] = [
 "Fully healths the Diver", 
 "Weapons have +4% increase Damage", 
 "Bubble has +10% increase maximum halth", 
-"Fully healths the Bubble", 
+"Increase the Bubble health by 50", 
 "Bubble receives -10% Damage"]
 
 func _ready() -> void:
@@ -103,14 +103,17 @@ func print_selected_item():
 	if first_item.selected:
 		Globals.upgrade = 1
 		print("El primer item está seleccionado.")
+		Globals.upgrades_counter[item_id_1 - 1] = Globals.upgrades_counter[item_id_1 - 1] + 1
 		call_deferred("queue_free")
 	elif second_item.selected:
 		Globals.upgrade = 2
 		print("El segundo item está seleccionado.")
+		Globals.upgrades_counter[item_id_1 - 1] = Globals.upgrades_counter[item_id_1 - 1] + 1
 		call_deferred("queue_free")
 	elif third_item.selected:
 		Globals.upgrade = 3
 		print("El tercer item está seleccionado.")
+		Globals.upgrades_counter[item_id_1 - 1] = Globals.upgrades_counter[item_id_1 - 1] + 1
 		call_deferred("queue_free")
 	else:
 		print("Ningún item está seleccionado.")

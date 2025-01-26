@@ -1,6 +1,6 @@
 extends Node2D
 
-var damage: float = 100
+var damage: float = 100 + Globals.upgrades_counter[1] * (0.1 * 100) + Globals.upgrades_counter[3] * (0.04 * 50)
 @onready var animationPlayer = $AnimationPlayer
 func _ready() -> void:
 	pass # Replace with function body.
