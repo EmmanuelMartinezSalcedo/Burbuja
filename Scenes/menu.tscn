@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpef3ot7fo0ai"]
+[gd_scene load_steps=5 format=3 uid="uid://dqxdafhcwnmgn"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_k40ng"]
-[ext_resource type="Texture2D" uid="uid://dvqg5a3c5reoi" path="res://Sprites/menu.png" id="1_qvuws"]
-[ext_resource type="Material" uid="uid://b2hgr4k1kfajk" path="res://Shaders/underwaterMaterial.tres" id="3_65gur"]
-[ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="4_xnskk"]
+[ext_resource type="Texture2D" uid="uid://dvqg5a3c5reoi" path="res://Sprites/menu.png" id="1_5m0s4"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vw5gt"]
+[ext_resource type="Material" uid="uid://b2hgr4k1kfajk" path="res://Shaders/underwaterMaterial.tres" id="3_5g275"]
+[ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="4_o025u"]
 
-[node name="GameOver" type="Control"]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k40ng")
+script = ExtResource("1_vw5gt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(0.162, 0.163556)
-texture = ExtResource("1_qvuws")
+texture = ExtResource("1_5m0s4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -35,15 +35,15 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 86
-text = "MENU"
+text = "PLAY"
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = 1000
 texture_repeat = 2
-material = ExtResource("3_65gur")
-position = Vector2(629.5, 354.5)
-scale = Vector2(1.05391, 1.07361)
-texture = ExtResource("4_xnskk")
+material = ExtResource("3_5g275")
+position = Vector2(636, 348)
+scale = Vector2(1.08125, 1.1)
+texture = ExtResource("4_o025u")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 720)
 
