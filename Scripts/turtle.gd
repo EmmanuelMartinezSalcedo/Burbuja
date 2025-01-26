@@ -65,3 +65,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		print(bullet.damage)
 		
 		bullet.queue_free()
+	if area.is_in_group("Sword"):
+		var sword = area.get_parent().get_parent()
+		print("Took damage from sword")
+		health -= sword.damage

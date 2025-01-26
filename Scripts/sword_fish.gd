@@ -16,7 +16,6 @@ func _ready() -> void:
 		#direction_to_bubble = (bubble.position - position).normalized()  # Dirección hacia la burbuja
 
 func _process(delta: float) -> void:
-	print(direction_to_bubble)
 	# Mover el pez en la dirección hacia la burbuja
 	velocity = direction_to_bubble * SPEED  # Movimiento hacia la burbuja
 	
@@ -57,6 +56,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			queue_free()
 			
 	if area.is_in_group("sword"):
-		var sword = area.get_parent()
+		var sword = area.get_parent().get_parent()
+		print("Took damage from sword")
 		health -= sword.damage
 		
