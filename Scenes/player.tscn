@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt2va7o282vnf"]
+[gd_scene load_steps=7 format=3 uid="uid://dt2va7o282vnf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_55p7j"]
 [ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="2_a6u7l"]
 [ext_resource type="PackedScene" uid="uid://btbfwy3lfgqu2" path="res://Scenes/gun.tscn" id="3_jtqt1"]
+[ext_resource type="PackedScene" uid="uid://b451dhlk3eevs" path="res://Scenes/knife.tscn" id="4_vo5w2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
 size = Vector2(127, 127)
@@ -36,7 +37,10 @@ texture = ExtResource("2_a6u7l")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Gun" parent="." instance=ExtResource("3_jtqt1")]
+[node name="Gun" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("3_jtqt1")]
 position = Vector2(39, 32)
+player_reference = NodePath("..")
+
+[node name="Knife" parent="." instance=ExtResource("4_vo5w2")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

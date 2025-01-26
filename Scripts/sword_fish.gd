@@ -12,10 +12,9 @@ func _ready() -> void:
 
 	# Calcular la dirección hacia la burbuja cuando el pez se crea
 	#if bubble:
-		#direction_to_bubble = (bubble.position - position).normalized()  # Dirección hacia la burbuja
+	direction_to_bubble = (bubble_position - position).normalized()  # Dirección hacia la burbuja
 
 func _process(delta: float) -> void:
-	print(direction_to_bubble)
 	# Mover el pez en la dirección hacia la burbuja
 	velocity = direction_to_bubble * SPEED  # Movimiento hacia la burbuja
 	
@@ -34,7 +33,9 @@ func _process(delta: float) -> void:
 	# Límite de velocidad
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
-	
+	if health <= 0:
+		get_parent().remove_child(self)
+		queue_free()
 	# Actualizar la posición del pez
 	#position += velocity * delta
 	move_and_slide()
@@ -49,6 +50,4 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		print(bullet.damage)
 		
 		bullet.queue_free()
-		if health <= 0:
-			get_parent().remove_child(self)
-			queue_free()
+		
