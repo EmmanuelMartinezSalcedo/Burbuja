@@ -8,14 +8,14 @@
 [ext_resource type="Material" uid="uid://b2hgr4k1kfajk" path="res://Shaders/underwaterMaterial.tres" id="5_bg6aq"]
 [ext_resource type="Script" path="res://Scripts/shader.gd" id="6_o1wdy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
-size = Vector2(127, 127)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yokfs"]
 size = Vector2(127, 127)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
+size = Vector2(127, 127)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 4
+collision_mask = 20
 motion_mode = 1
 script = ExtResource("1_55p7j")
 volume = 70.0
@@ -23,11 +23,6 @@ density = 1.7
 speed = 10.0
 max_speed = 1000.0
 health = 100.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
-scale = Vector2(0.325, 0.325)
-shape = SubResource("RectangleShape2D_60h33")
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
@@ -58,5 +53,10 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 720)
 script = ExtResource("6_o1wdy")
 camera = NodePath("../Camera2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+scale = Vector2(0.325, 0.325)
+shape = SubResource("RectangleShape2D_60h33")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
