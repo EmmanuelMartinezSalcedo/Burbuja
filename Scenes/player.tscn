@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt2va7o282vnf"]
+[gd_scene load_steps=9 format=3 uid="uid://dt2va7o282vnf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_55p7j"]
 [ext_resource type="Texture2D" uid="uid://bggnpqs8kk5vp" path="res://icon.svg" id="2_a6u7l"]
 [ext_resource type="PackedScene" uid="uid://btbfwy3lfgqu2" path="res://Scenes/gun.tscn" id="3_jtqt1"]
 [ext_resource type="PackedScene" uid="uid://b451dhlk3eevs" path="res://Scenes/knife.tscn" id="4_g6ocr"]
+[ext_resource type="Material" uid="uid://b2hgr4k1kfajk" path="res://Shaders/underwaterMaterial.tres" id="5_bg6aq"]
+[ext_resource type="Script" path="res://Scripts/shader.gd" id="6_o1wdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60h33"]
 size = Vector2(127, 127)
@@ -43,5 +45,15 @@ position = Vector2(39, 32)
 
 [node name="Knife" parent="." instance=ExtResource("4_g6ocr")]
 position = Vector2(39, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." node_paths=PackedStringArray("camera")]
+z_index = 1000
+texture_repeat = 2
+material = ExtResource("5_bg6aq")
+texture = ExtResource("2_a6u7l")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+script = ExtResource("6_o1wdy")
+camera = NodePath("../Camera2D")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
