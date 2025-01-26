@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1y62h0dnqlaq" path="res://Scenes/bubble.tscn" id="2_bxrkf"]
 [ext_resource type="PackedScene" uid="uid://csrb7ridqgete" path="res://Scenes/turtle.tscn" id="3_s3j42"]
 [ext_resource type="PackedScene" uid="uid://cqr01x4s2745b" path="res://Scenes/fish_spawner.tscn" id="4_nv48n"]
-[ext_resource type="PackedScene" path="res://Scenes/shop.tscn" id="6_g7fp8"]
+[ext_resource type="PackedScene" uid="uid://hpsu63cikuse" path="res://Scenes/shop.tscn" id="6_g7fp8"]
 
 [sub_resource type="Gradient" id="Gradient_wydvk"]
 
