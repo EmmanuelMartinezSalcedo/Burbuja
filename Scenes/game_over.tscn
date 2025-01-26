@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=3 uid="uid://dpef3ot7fo0ai"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_k40ng"]
@@ -48,3 +49,46 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 720)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://dpef3ot7fo0ai"]
+
+[ext_resource type="Texture2D" uid="uid://bgwfgblkvy6ij" path="res://Sprites/Background.png" id="1_ps1qo"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1536, 357)
+scale = Vector2(4.09375, 4.09375)
+texture = ExtResource("1_ps1qo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 467.0
+offset_top = 35.0
+offset_right = 980.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 100
+text = "Skill Issue?"
+
+[node name="PanelContainer" type="VBoxContainer" parent="."]
+offset_left = 446.0
+offset_top = 290.0
+offset_right = 930.0
+offset_bottom = 676.0
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)
+
+[node name="Button2" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Back to menu"
+>>>>>>> Stashed changes
